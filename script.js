@@ -55,62 +55,34 @@ heroDots.forEach((dot, index) => {
 // Start auto rotation
 resetHeroInterval();
 
-/* GALLERY SLIDER */
-const gallerySlides = document.querySelectorAll(".gallery-slide");
-const galleryDots = document.querySelectorAll(".gallery-dot");
-const galleryLeft = document.querySelector(".left-btn");
-const galleryRight = document.querySelector(".right-btn");
-let currentGallerySlide = 0;
+/* GYM GALLERY PLACEHOLDERS */
+document.querySelectorAll(".gym-photo img").forEach((img) => {
+    const markEmpty = () => {
+        const photo = img.closest(".gym-photo");
+        if (photo) photo.classList.add("is-empty");
+    };
 
-function showGallerySlide(index) {
-    if (gallerySlides.length === 0) return;
-    
-    gallerySlides.forEach(slide => slide.classList.remove("active"));
-    galleryDots.forEach(dot => dot.classList.remove("active"));
-
-    gallerySlides[index].classList.add("active");
-    galleryDots[index].classList.add("active");
-    currentGallerySlide = index;
-}
-
-function nextGallerySlide() {
-    let nextIndex = currentGallerySlide + 1;
-    if (nextIndex >= gallerySlides.length) nextIndex = 0;
-    showGallerySlide(nextIndex);
-}
-
-function prevGallerySlide() {
-    let prevIndex = currentGallerySlide - 1;
-    if (prevIndex < 0) prevIndex = gallerySlides.length - 1;
-    showGallerySlide(prevIndex);
-}
-
-if (galleryLeft && galleryRight) {
-    galleryRight.addEventListener("click", () => {
-        nextGallerySlide();
-    });
-    
-    galleryLeft.addEventListener("click", () => {
-        prevGallerySlide();
-    });
-}
-
-galleryDots.forEach((dot, index) => {
-    dot.addEventListener("click", () => {
-        showGallerySlide(index);
-    });
+    img.addEventListener("error", markEmpty);
+    if (img.complete && img.naturalWidth === 0) markEmpty();
 });
+
+/* SCROLL REVEAL — sections after the map */
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add("show");
+            observer.unobserve(entry.target);
         }
     });
+}, {
+    threshold: 0.12,
+    rootMargin: "0px 0px -60px 0px"
 });
 
-const hiddenElements = document.querySelectorAll(".hidden");
-
-hiddenElements.forEach((el) => observer.observe(el));
+document.querySelectorAll(".hidden").forEach((el, index) => {
+    el.style.transitionDelay = `${Math.min(index % 6, 5) * 90}ms`;
+    observer.observe(el);
+});
 
 /* GYM TIMINGS - LIVE STATUS CHECKER */
 function updateGymStatus() {

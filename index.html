@@ -79,8 +79,6 @@
         </div>
     </section>
 
-    <script src="script.js"></script>
-
     <section class="plans" id="plans">
         <h2>Membership Plans</h2>
         
@@ -110,53 +108,60 @@
                 <button>Join Now</button>
             </div>
         </div>
-
-        <section class="gallery-map">
-            <!-- LEFT SIDE -->
-            <div class="gallery-slider" id="gallery">
-                <div class="gallery-slides-wrapper">
-                    <img src="images/" class="gallery-slide active" alt="Gym Photo 1">
-                    <img src="images/" class="gallery-slide" alt="Gym Photo 2">
-                    <img src="images/" class="gallery-slide" alt="Gym Photo 3">
-                    <img src="images/" class="gallery-slide" alt="Gym Photo 4">
-                </div>
-
-                <button class="gallery-arrow left-btn">&#10094;</button>
-                <button class="gallery-arrow right-btn">&#10095;</button>
-
-                <div class="gallery-dots">
-                    <span class="gallery-dot active"></span>
-                    <span class="gallery-dot"></span>
-                    <span class="gallery-dot"></span>
-                    <span class="gallery-dot"></span>
-                </div>
-            </div>
-
-            <!-- RIGHT SIDE -->
-            <div class="location-section">
-                <h2>Find Us</h2>
-                <div class="map-container">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.8875939519653!2d78.48007369999999!3d17.482266499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9a839a6089bd%3A0xb42ae712b2eb3290!2sMind%20Over%20Muscle!5e1!3m2!1sen!2sin!4v1781879371667!5m2!1sen!2sin"
-                        width="100%"
-                        height="300"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div>
-        </section>
     </section>
-</body>
 
-<section class="reviews" id="reviews">
+    <!-- Put gym photos in images/ as gym-1.jpg through gym-8.jpg -->
+    <section class="gym-gallery" id="gallery">
+        <h2>Gym Gallery</h2>
+        
+        <div class="gym-gallery-grid">
+            <figure class="gym-photo gym-photo--hero" data-file="gym-1.jpg">
+                <img src="images/gym-1.jpeg" alt="Gym interior">
+            </figure>
+            <figure class="gym-photo" data-file="gym-2.jpg">
+                <img src="images/gym-2.jpeg" alt="Strength training area">
+            </figure>
+            <figure class="gym-photo" data-file="gym-3.jpg">
+                <img src="images/gym-3.jpeg" alt="Cardio machines">
+            </figure>
+            <figure class="gym-photo gym-photo--tall" data-file="gym-4.jpg">
+                <img src="images/gym-4.jpeg" alt="Free weights">
+            </figure>
+            <figure class="gym-photo" data-file="gym-5.jpg">
+                <img src="images/gym-5.jpeg" alt="Training floor">
+            </figure>
+            <figure class="gym-photo gym-photo--wide" data-file="gym-6.jpg">
+                <img src="images/gym-6.jpeg" alt="Gym atmosphere">
+            </figure>
+            <figure class="gym-photo" data-file="gym-7.jpg">
+                <img src="images/gym-7.jpeg" alt="Equipment close-up">
+            </figure>
+            
+        </div>
+    </section>
+
+    <section class="location" id="location">
+        <h2>Find Us</h2>
+        <p class="subtitle">Visit Mind Over Muscle — we are easy to find on the map.</p>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.8875939519653!2d78.48007369999999!3d17.482266499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9a839a6089bd%3A0xb42ae712b2eb3290!2sMind%20Over%20Muscle!5e1!3m2!1sen!2sin!4v1781879371667!5m2!1sen!2sin"
+                width="100%"
+                height="420"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+<section class="reviews hidden" id="reviews">
     <h2>What Our Gym Members Say</h2>
     <p class="subtitle">Real experiences from members who trusted the process.</p>
 
     <div class="reviews-grid">
-        <div class="review-card">
+        <div class="review-card hidden">
             <div class="review-header">
                 <div class="avatar" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">BS</div>
                 <div class="reviewer-info">
@@ -167,7 +172,7 @@
             <p>"Honestly one of the best decisions I've made for my fitness journey..."</p>
         </div>
 
-        <div class="review-card">
+        <div class="review-card hidden">
             <div class="review-header">
                 <div class="avatar" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);">UG</div>
                 <div class="reviewer-info">
@@ -178,7 +183,7 @@
             <p>"Best gym in the area. Spacious, unisex, safe environment..."</p>
         </div>
 
-        <div class="review-card">
+        <div class="review-card hidden">
             <div class="review-header">
                 <div class="avatar" style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);">SN</div>
                 <div class="reviewer-info">
@@ -189,7 +194,7 @@
             <p>"The trainers are extremely supportive and motivating..."</p>
         </div>
 
-        <div class="review-card">
+        <div class="review-card hidden">
             <div class="review-header">
                 <div class="avatar" style="background: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%);">HR</div>
                 <div class="reviewer-info">
@@ -200,7 +205,7 @@
             <p>"Clean facilities, excellent trainers, and a positive atmosphere..."</p>
         </div>
 
-        <div class="review-card">
+        <div class="review-card hidden">
             <div class="review-header">
                 <div class="avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">NR</div>
                 <div class="reviewer-info">
@@ -211,7 +216,7 @@
             <p>"Modern equipment and a friendly community that keeps me motivated..."</p>
         </div>
 
-        <div class="review-card">
+        <div class="review-card hidden">
             <div class="review-header">
                 <div class="avatar" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">SP</div>
                 <div class="reviewer-info">
@@ -229,23 +234,23 @@
 </section>
 
 <!-- FACILITIES & EQUIPMENT -->
-<section class="facilities">
+<section class="facilities hidden">
     <h2>Facilities & Equipment</h2>
     <p class="subtitle">Everything you need to achieve your fitness goals.</p>
 
     <div class="facility-grid">
-        <div class="facility-card"><span class="facility-icon">🏋️</span> Modern Strength Equipment</div>
-        <div class="facility-card"><span class="facility-icon">💪</span> Free Weights & Dumbbells</div>
-        <div class="facility-card"><span class="facility-icon">🏃</span> Cardio Machines</div>
-        <div class="facility-card"><span class="facility-icon">🏋️</span> Smith Machine & Squat Rack</div>
-        <div class="facility-card"><span class="facility-icon">👨‍🏫</span> Certified Trainers</div>
-        <div class="facility-card"><span class="facility-icon">🚺</span> Women-Friendly Environment</div>
-        <div class="facility-card"><span class="facility-icon">🧼</span> Clean & Hygienic Facility</div>
-        <div class="facility-card"><span class="facility-icon">❄️</span> Spacious Workout Area</div>
+        <div class="facility-card hidden"><span class="facility-icon">🏋️</span> Modern Strength Equipment</div>
+        <div class="facility-card hidden"><span class="facility-icon">💪</span> Free Weights & Dumbbells</div>
+        <div class="facility-card hidden"><span class="facility-icon">🏃</span> Cardio Machines</div>
+        <div class="facility-card hidden"><span class="facility-icon">🏋️</span> Smith Machine & Squat Rack</div>
+        <div class="facility-card hidden"><span class="facility-icon">👨‍🏫</span> Certified Trainers</div>
+        <div class="facility-card hidden"><span class="facility-icon">🚺</span> Women-Friendly Environment</div>
+        <div class="facility-card hidden"><span class="facility-icon">🧼</span> Clean & Hygienic Facility</div>
+        <div class="facility-card hidden"><span class="facility-icon">❄️</span> Spacious Workout Area</div>
     </div>
 </section>
 
-<section class="timings">
+<section class="timings hidden">
     <h2>Gym Timings</h2>
     
     <div class="status-container">
@@ -254,7 +259,7 @@
     </div>
 
     <div class="timings-container">
-        <div class="timings-card">
+        <div class="timings-card hidden">
             <div class="timings-icon">📅</div>
             <h3>Monday – Saturday</h3>
             <div class="time-slots">
@@ -269,7 +274,7 @@
             </div>
         </div>
 
-        <div class="timings-card">
+        <div class="timings-card hidden">
             <div class="timings-icon">☀️</div>
             <h3>Sunday</h3>
             <div class="time-slots">
@@ -284,7 +289,7 @@
             </div>
         </div>
 
-        <div class="timings-card info-card">
+        <div class="timings-card info-card hidden">
             <div class="timings-icon">💡</div>
             <h3>Peak Hours Info</h3>
             <div class="time-slots">
@@ -302,62 +307,57 @@
 </section>
 
 <!-- HEALTH & NUTRITION -->
-<section class="nutrition">
+<section class="nutrition hidden">
     <h2>Health & Nutrition Tips</h2>
     <p class="subtitle">Fuel your body for performance, recovery, and long-term success.</p>
 
     <!-- Category Filter Tabs -->
-    <div class="nutrition-tabs">
-        <button class="tab-btn active" data-filter="all">All Tips</button>
-        <button class="tab-btn" data-filter="muscle">Muscle Gain</button>
-        <button class="tab-btn" data-filter="weight">Weight Loss</button>
-        <button class="tab-btn" data-filter="wellness">General Wellness</button>
-    </div>
+    
 
     <div class="nutrition-grid">
-        <div class="nutrition-card" data-category="wellness">
+        <div class="nutrition-card hidden" data-category="wellness">
             <div class="nutrition-icon">🥗</div>
             <h3>Eat Balanced Meals</h3>
             <p>Focus on whole foods, lean proteins, healthy fats, and complex carbohydrates to fuel your daily energy.</p>
         </div>
 
-        <div class="nutrition-card" data-category="wellness">
+        <div class="nutrition-card hidden" data-category="wellness">
             <div class="nutrition-icon">💧</div>
             <h3>Stay Hydrated</h3>
             <p>Drink at least 3-4 liters of water daily. Hydration improves joint lubrication, recovery, and muscle function.</p>
         </div>
 
-        <div class="nutrition-card" data-category="wellness">
+        <div class="nutrition-card hidden" data-category="wellness">
             <div class="nutrition-icon">😴</div>
             <h3>Prioritize Sleep</h3>
             <p>Aim for 7-8 hours of quality sleep. Muscle synthesis and hormone regulation occur primarily while you sleep.</p>
         </div>
 
-        <div class="nutrition-card" data-category="muscle">
+        <div class="nutrition-card hidden" data-category="muscle">
             <div class="nutrition-icon">🥩</div>
             <h3>Protein Intake</h3>
             <p>Consume 1.6g to 2.2g of protein per kg of bodyweight daily to repair muscle fibers and support hypertrophy.</p>
         </div>
 
-        <div class="nutrition-card" data-category="weight">
+        <div class="nutrition-card hidden" data-category="weight">
             <div class="nutrition-icon">📉</div>
             <h3>Caloric Deficit</h3>
             <p>To lose weight, eat slightly fewer calories than your maintenance level while keeping your protein intake high.</p>
         </div>
 
-        <div class="nutrition-card" data-category="muscle">
+        <div class="nutrition-card hidden" data-category="muscle">
             <div class="nutrition-icon">🏋️</div>
             <h3>Progressive Overload</h3>
             <p>Gradually increase weight, reps, or intensity in workouts to force muscles to adapt and grow stronger.</p>
         </div>
 
-        <div class="nutrition-card" data-category="weight">
+        <div class="nutrition-card hidden" data-category="weight">
             <div class="nutrition-icon">🥦</div>
             <h3>High-Fiber Foods</h3>
             <p>Incorporate green vegetables and grains to keep you full longer and support healthy digestion.</p>
         </div>
 
-        <div class="nutrition-card" data-category="wellness">
+        <div class="nutrition-card hidden" data-category="wellness">
             <div class="nutrition-icon">🔥</div>
             <h3>Stay Consistent</h3>
             <p>Consistency beats intensity. Small, disciplined daily choices lead to life-changing long-term results.</p>
@@ -366,7 +366,7 @@
 </section>
 
 <!-- CTA -->
-<section class="cta">
+<section class="cta hidden">
     <h2>Ready To Transform Your Body?</h2>
 
     <p>
@@ -388,5 +388,6 @@
 </div>
 </section>
 
+    <script src="script.js"></script>
 </body>
 </html>

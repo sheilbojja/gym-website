@@ -1,3 +1,12 @@
+:root {
+    --page-padding: clamp(1.25rem, 4vw, 3rem);
+    --section-padding: clamp(3rem, 6vw, 5.5rem);
+    --section-gap: clamp(1.5rem, 3vw, 2.5rem);
+    --card-gap: clamp(1rem, 2.2vw, 1.5rem);
+    --radius-lg: 24px;
+    --radius-md: 18px;
+}
+
 *{
     margin:0;
     padding:0;
@@ -7,6 +16,7 @@
 
 body{
     background:#fff;
+    line-height: 1.6;
 }
 
 /* NAVBAR */
@@ -16,11 +26,11 @@ body{
     top:0;
     width:100%;
     background:rgba(255,255,255,.08);
-     backdrop-filter:blur(18px);
+    backdrop-filter:blur(18px);
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 8%;
+    padding:18px var(--page-padding);
     box-shadow:0 2px 10px rgba(0,0,0,0.08);
     z-index:1000;
 }
@@ -28,8 +38,8 @@ body{
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
-     margin-left: 20px;
+    gap: 0.75rem;
+    margin-left: 0;
 }
 
 .logo-img {
@@ -42,7 +52,7 @@ body{
 .nav-links{
     display:flex;
     list-style:none;
-    gap:25px;
+    gap: clamp(1rem, 2vw, 1.5rem);
 }
 
 .nav-links a{
@@ -59,7 +69,7 @@ body{
 
 .nav-buttons{
     display:flex;
-    gap:10px;
+    gap:0.75rem;
 }
 
 .whatsapp-btn{
@@ -128,12 +138,12 @@ body{
     color: white;
     z-index: 2;
     max-width: 800px;
-    padding: 0 20px;
+    padding: 0 clamp(1.25rem, 4vw, 2rem);
 }
 
 .slide-content h1 {
-    font-size: 64px;
-    margin-bottom: 20px;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    margin-bottom: 1rem;
     font-weight: 700;
     letter-spacing: 1px;
     opacity: 0;
@@ -142,7 +152,7 @@ body{
 }
 
 .slide-content p {
-    font-size: 24px;
+    font-size: clamp(1.05rem, 2.2vw, 1.5rem);
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;
@@ -219,14 +229,14 @@ body{
 /* PLANS */
 
 .plans {
-    padding: 100px 8%;
+    padding: var(--section-padding) var(--page-padding);
     background: #fdfbf7;
     text-align: center;
 }
 
 .plans h2 {
     font-size: 42px;
-    margin-bottom: 50px;
+    margin-bottom: 2.5rem;
     color: #111;
 }
 
@@ -234,16 +244,16 @@ body{
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap: 30px;
+    gap: var(--card-gap);
     flex-wrap: wrap;
-    margin-bottom: 100px;
+    margin-bottom: 4rem;
 }
 
 .plan-card {
     width: 270px;
     background: white;
-    padding: 40px 30px;
-    border-radius: 24px;
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius-lg);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
     border: 1px solid rgba(0, 0, 0, 0.03);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -262,14 +272,14 @@ body{
     font-size: 22px;
     font-weight: 600;
     color: #111;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
 .price {
     font-size: 44px;
     font-weight: 700;
     color: #111;
-    margin-bottom: 30px;
+    margin-bottom: 1.75rem;
     display: flex;
     justify-content: center;
     align-items: baseline;
@@ -336,141 +346,128 @@ body{
     color: #fff;
 }
 
-/* GALLERY & MAP SECTION */
+/* GYM GALLERY */
 
-.gallery-map {
-    margin-top: 100px;
-    display: flex;
-    gap: 40px;
-    align-items: stretch;
-    text-align: left;
+.gym-gallery {
+    padding: var(--section-padding) var(--page-padding);
+    background: #111;
+    text-align: center;
 }
 
-.gallery-slider {
-    flex: 1.2;
+.gym-gallery h2 {
+    font-size: 42px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.gym-gallery .subtitle {
+    color: #bbb;
+    margin-bottom: 2.5rem;
+}
+
+.gym-gallery-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 180px;
+    gap: 0.85rem;
+}
+
+.gym-photo {
     position: relative;
-    background: white;
-    padding: 20px;
-    border-radius: 24px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    height: 480px;
+    margin: 0;
     overflow: hidden;
+    border-radius: 18px;
+    background: #1c1c1c;
 }
 
-.gallery-slides-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.gallery-slide {
-    position: absolute;
-    inset: 0;
+.gym-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 18px;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
-    z-index: 1;
+    display: block;
+    transition: transform 0.5s ease;
 }
 
-.gallery-slide.active {
-    opacity: 1;
-    z-index: 2;
+.gym-photo:hover img {
+    transform: scale(1.06);
 }
 
-.location-section {
-    flex: 1;
-    background: white;
-    padding: 30px;
-    border-radius: 24px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+.gym-photo--hero {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.gym-photo--tall {
+    grid-row: span 2;
+}
+
+.gym-photo--wide {
+    grid-column: span 2;
+}
+
+.gym-photo.is-empty {
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+}
+
+.gym-photo.is-empty img {
+    display: none;
+}
+
+.gym-photo.is-empty::after {
+    content: attr(data-file);
+    position: absolute;
+    inset: 0;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
 }
 
-.location-section h2 {
-    margin-bottom: 25px;
-    font-size: 32px;
+/* MAP */
+
+.location {
+    padding: var(--section-padding) var(--page-padding);
+    background: #fdfbf7;
+    text-align: center;
+}
+
+.location h2 {
+    font-size: 42px;
     color: #111;
+    margin-bottom: 10px;
+}
+
+.location .subtitle {
+    color: #666;
+    margin-bottom: 2rem;
 }
 
 .map-container {
-    border-radius: 18px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    flex: 1;
+    min-height: 420px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .map-container iframe {
     display: block;
     width: 100%;
-    height: 100%;
-}
-
-.gallery-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 45px;
-    height: 45px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
-    color: white;
-    font-size: 20px;
-    z-index: 10;
-    transition: all 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.gallery-arrow:hover {
-    background: rgba(0, 0, 0, 0.6);
-    transform: translateY(-50%) scale(1.05);
-}
-
-.left-btn {
-    left: 35px;
-}
-
-.right-btn {
-    right: 35px;
-}
-
-.gallery-dots {
-    position: absolute;
-    bottom: 35px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    display: flex;
-    gap: 8px;
-}
-
-.gallery-dot {
-    width: 8px;
-    height: 8px;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.5;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.gallery-dot.active {
-    opacity: 1;
-    transform: scale(1.2);
+    height: 420px;
 }
 
 /* REVIEWS */
 
 .reviews {
-    padding: 100px 8%;
+    padding: var(--section-padding) var(--page-padding);
     background: #f8f8f8;
     text-align: center;
 }
@@ -486,13 +483,13 @@ body{
     margin: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 1.5rem;
 }
 
 .review-card {
     background: white;
-    padding: 35px;
-    border-radius: 24px;
+    padding: 1.75rem;
+    border-radius: var(--radius-lg);
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.02);
     border: 1px solid rgba(0, 0, 0, 0.01);
     transition: all 0.3s ease;
@@ -507,8 +504,8 @@ body{
 .review-header {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
+    gap: 0.9rem;
+    margin-bottom: 1rem;
 }
 
 .avatar {
@@ -544,7 +541,7 @@ body{
 }
 
 .rating {
-    margin-top: 50px;
+    margin-top: 2.5rem;
     font-size: 20px;
     font-weight: 600;
     color: #111;
@@ -553,6 +550,7 @@ body{
 /* FACILITIES & EQUIPMENT */
 
 .facilities {
+    padding: var(--section-padding) var(--page-padding);
     background: white;
 }
 .facilities h2,
@@ -564,12 +562,12 @@ body{
     margin: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    gap: 1.25rem;
 }
 
 .facility-card {
     background: #fcfbfa;
-    padding: 30px 20px;
+    padding: 1.5rem 1.25rem;
     border-radius: 20px;
     font-weight: 600;
     color: #222;
@@ -596,7 +594,7 @@ body{
 /* TIMINGS */
 
 .timings {
-    padding: 100px 8%;
+    padding: var(--section-padding) var(--page-padding);
     background: radial-gradient(circle at 10% 20%, rgb(20, 20, 20) 0%, rgb(30, 30, 30) 90.2%);
     color: #fff;
     text-align: center;
@@ -606,17 +604,18 @@ body{
     font-size: 42px;
     margin-bottom: 20px;
     background: linear-gradient(135deg, #fff 30%, #a5c2f0 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 /* Status Indicator style */
 .status-container {
-    margin-bottom: 50px;
+    margin-bottom: 2.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: 0.75rem;
 }
 
 .status-label {
@@ -666,7 +665,7 @@ body{
 .timings-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -675,8 +674,8 @@ body{
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 40px 30px;
-    border-radius: 24px;
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius-lg);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
     overflow: hidden;
@@ -714,7 +713,7 @@ body{
 .time-slots {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 0.75rem;
 }
 
 .time-slot {
@@ -722,7 +721,7 @@ body{
     justify-content: space-between;
     align-items: center;
     background: rgba(255, 255, 255, 0.02);
-    padding: 12px 18px;
+    padding: 0.8rem 1rem;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.03);
 }
@@ -753,7 +752,7 @@ body{
 /* NUTRITION */
 
 .nutrition {
-    padding: 100px 8%;
+    padding: var(--section-padding) var(--page-padding);
     background: #fdfbf7;
     text-align: center;
 }
@@ -768,8 +767,8 @@ body{
 .nutrition-tabs {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 50px;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
     flex-wrap: wrap;
 }
 
@@ -777,7 +776,7 @@ body{
     background: #fff;
     color: #666;
     border: 1px solid #e0e0e0;
-    padding: 12px 24px;
+    padding: 0.75rem 1.25rem;
     border-radius: 30px;
     font-size: 15px;
     font-weight: 600;
@@ -893,6 +892,7 @@ body{
 .cta {
     background: #111;
     color: white;
+    padding: var(--section-padding) var(--page-padding);
 }
 
 .cta p {
@@ -944,6 +944,17 @@ body{
     .nutrition-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .gym-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 200px;
+    }
+    .gym-photo--hero {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+    .gym-photo--wide {
+        grid-column: span 2;
+    }
 }
 
 @media (max-width: 768px) {
@@ -953,9 +964,25 @@ body{
         grid-template-columns: 1fr;
     }
 
+    .gym-gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 160px;
+    }
+
+    .gym-photo--hero,
+    .gym-photo--wide {
+        grid-column: span 2;
+    }
+
+    .gym-photo--tall {
+        grid-row: span 1;
+    }
+
     .facilities h2,
     .timings h2,
     .nutrition h2,
+    .gym-gallery h2,
+    .location h2,
     .cta h2 {
         font-size: 2rem;
     }
@@ -968,11 +995,110 @@ html{
 }
 .hidden {
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
+    transform: translateY(48px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.show {
+.hidden.show {
     opacity: 1;
     transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hidden {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+@media (max-width: 520px) {
+    .gym-gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 220px;
+    }
+
+    .gym-photo--hero,
+    .gym-photo--wide,
+    .gym-photo--tall {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
+/* SLIDER CONTAINER MOTION */
+.slider-container {
+    animation: sectionReveal 0.9s ease both;
+}
+
+/* PLAN CARD MOTION */
+.plan-card {
+    animation: cardReveal 0.8s ease both;
+}
+
+.plan-card:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.plan-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.plan-card:nth-child(4) {
+    animation-delay: 0.45s;
+}
+
+/* GALLERY PHOTO MOTION */
+.gym-photo {
+    animation: cardReveal 0.8s ease both;
+}
+
+.gym-photo:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.gym-photo:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.gym-photo:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.gym-photo:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.gym-photo:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+@keyframes sectionReveal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes cardReveal {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .slider-container,
+    .plan-card,
+    .gym-photo {
+        animation: none;
+    }
 }
